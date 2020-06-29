@@ -62,6 +62,64 @@ const reducer = (state = initialState, action) => {
         authRedirectPath: action.path
       };
     }
+    case actionTypes.UPDATE_USER_FAIL: {
+      return {
+        ...state,
+        error: action.error,
+        loading: false
+      };
+    }
+    case actionTypes.UPDATE_USER_SUCCESS: {
+      return {
+        ...state,
+        error: null,
+        loading: false,
+        userImage: action.photo,
+        userName: action.name
+      };
+    }
+    case actionTypes.UPDATE_USER_INIT: {
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    }
+    case actionTypes.UPDATE_USER_PASSWORD_FAIL: {
+      return {
+        ...state,
+        error: action.error,
+        loading: false
+      };
+    }
+    case actionTypes.UPDATE_USER_PASSWORD_SUCCESS: {
+      return {
+        ...state,
+        error: null,
+        loading: false
+      };
+    }
+    case actionTypes.UPDATE_USER_PASSWORD_INIT: {
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    }
+    case actionTypes.DELETE_ME_PROCESS: {
+      const init = action.init;
+      let loading = false;
+      let error = action.error;
+      if (init) {
+        loading = true;
+      }
+      return {
+        ...state,
+        loading: init,
+        error: error
+      };
+    }
+
     default:
       return state;
   }

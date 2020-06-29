@@ -79,6 +79,10 @@ body {
   text-align: right !important;
 }
 
+.left {
+  text-align: left !important;
+}
+
 .line {
   margin: 6rem 0;
   width: 100%;
@@ -236,6 +240,11 @@ body {
 }
 .btn--green::after {
   background-color: #55c57a;
+}
+
+.btn--red {
+  background-color: #eb4d4b;
+  color: #fff;
 }
 
 .btn--small {
@@ -1254,6 +1263,9 @@ body {
 .form__input:focus {
   outline: none;
   border-bottom: 3px solid #55c57a;
+}
+.form__input:disabled {
+  background-color: gainsboro;
 }
 .form__input:focus:invalid {
   border-bottom: 3px solid #ff7730;

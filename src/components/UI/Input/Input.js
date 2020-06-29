@@ -14,6 +14,11 @@ const input = (props) => {
               ? props.shouldValidate.minLength
               : null
           }
+          maxLength={
+            props.shouldValidate.maxLength
+              ? props.shouldValidate.maxLength
+              : null
+          }
           value={props.value}
           onChange={props.onChange}
         />
@@ -23,6 +28,17 @@ const input = (props) => {
       inputElement = (
         <textarea
           {...props.elementConfig}
+          required={props.shouldValidate.required ? 'required' : null}
+          minLength={
+            props.shouldValidate.minLength
+              ? props.shouldValidate.minLength
+              : null
+          }
+          maxLength={
+            props.shouldValidate.maxLength
+              ? props.shouldValidate.maxLength
+              : null
+          }
           value={props.value}
           onChange={props.onChange}
         />
@@ -43,6 +59,17 @@ const input = (props) => {
       inputElement = (
         <input
           {...props.elementConfig}
+          required={props.shouldValidate.required ? 'required' : null}
+          minLength={
+            props.shouldValidate.minLength
+              ? props.shouldValidate.minLength
+              : null
+          }
+          maxLength={
+            props.shouldValidate.maxLength
+              ? props.shouldValidate.maxLength
+              : null
+          }
           value={props.value}
           onChange={props.onChange}
         />

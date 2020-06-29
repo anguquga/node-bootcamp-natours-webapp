@@ -4,8 +4,6 @@ import Button from '../../components/UI/Button/Button';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/actionsIndex';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import axios from '../../axios-natours';
 import { Redirect } from 'react-router-dom';
 import { checkValidity } from '../../shared/utility';
 
@@ -114,9 +112,7 @@ class Auth extends Component {
     let errorMessage = null;
     if (this.props.error) {
       errorMessage = (
-        <p
-          style={{ color: 'red', 'font-size': '1.6rem', 'font-weight': 'bold' }}
-        >
+        <p style={{ color: 'red', fontSize: '1.6rem', fontWeight: 'bold' }}>
           {this.props.error}
         </p>
       );
@@ -132,7 +128,7 @@ class Auth extends Component {
         {authRedirect}
         {errorMessage}
         <h2 className="heading-secondary ma-bt-lg">Log into your account</h2>
-        <form onSubmit={this.authenticate} classes="form form--login">
+        <form onSubmit={this.authenticate} className="form form--login">
           {form}
           <div className="form__group">
             <Button buttonClass="btn btn--green">Login</Button>
@@ -159,7 +155,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withErrorHandler(Auth, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

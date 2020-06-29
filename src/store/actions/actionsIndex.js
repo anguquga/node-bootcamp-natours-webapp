@@ -6,5 +6,16 @@ export {
   logoutAction,
   authStart,
   authSuccess,
-  authFail
+  authFail,
+  signUp,
+  updateUser,
+  updateUserInit,
+  updateUserFail,
+  updateUserSuccess,
+  updateUserPassword,
+  updateUserPasswordInit,
+  updateUserPasswordSuccess,
+  updateUserPasswordFail,
+  deleteMe,
+  deleteMeProcess
 } from './authActions';
