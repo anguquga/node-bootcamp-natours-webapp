@@ -2,8 +2,9 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   token: null,
-  userId: null,
-  userimage: null,
+  userName: null,
+  userImage: null,
+  email: null,
   error: null,
   loading: false,
   timer: null,
@@ -18,7 +19,9 @@ const reducer = (state = initialState, action) => {
         error: null,
         loading: true,
         token: null,
-        userId: null
+        userName: null,
+        userImage: null,
+        email: null
       };
     }
     case actionTypes.AUTH_SUCCESS: {
@@ -27,7 +30,9 @@ const reducer = (state = initialState, action) => {
         error: null,
         loading: false,
         token: action.token,
-        userId: action.userId
+        userName: action.userName,
+        email: action.email,
+        userImage: action.userImage
       };
     }
     case actionTypes.AUTH_FAIL: {
@@ -36,21 +41,19 @@ const reducer = (state = initialState, action) => {
         error: action.error,
         loading: false,
         token: null,
-        userId: null
+        userName: null,
+        userImage: null,
+        email: null
       };
     }
     case actionTypes.AUTH_LOGOUT: {
       return {
         ...state,
-        userId: null,
         token: null,
+        userName: null,
+        userImage: null,
+        email: null,
         timer: null
-      };
-    }
-    case actionTypes.AUTH_TIMER: {
-      return {
-        ...state,
-        timer: action.timer
       };
     }
     case actionTypes.SET_AUTH_REDIRECT: {
@@ -59,6 +62,64 @@ const reducer = (state = initialState, action) => {
         authRedirectPath: action.path
       };
     }
+    case actionTypes.UPDATE_USER_FAIL: {
+      return {
+        ...state,
+        error: action.error,
+        loading: false
+      };
+    }
+    case actionTypes.UPDATE_USER_SUCCESS: {
+      return {
+        ...state,
+        error: null,
+        loading: false,
+        userImage: action.photo,
+        userName: action.name
+      };
+    }
+    case actionTypes.UPDATE_USER_INIT: {
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    }
+    case actionTypes.UPDATE_USER_PASSWORD_FAIL: {
+      return {
+        ...state,
+        error: action.error,
+        loading: false
+      };
+    }
+    case actionTypes.UPDATE_USER_PASSWORD_SUCCESS: {
+      return {
+        ...state,
+        error: null,
+        loading: false
+      };
+    }
+    case actionTypes.UPDATE_USER_PASSWORD_INIT: {
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    }
+    case actionTypes.DELETE_ME_PROCESS: {
+      const init = action.init;
+      let loading = false;
+      let error = action.error;
+      if (init) {
+        loading = true;
+      }
+      return {
+        ...state,
+        loading: init,
+        error: error
+      };
+    }
+
     default:
       return state;
   }
