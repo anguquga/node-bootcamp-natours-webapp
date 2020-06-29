@@ -13,6 +13,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 
 import authReducer from './store/reducers/authReducer.js';
+import { setupInterceptors } from './axios-natours';
 
 const rootReducer = combineReducers({
   authRed: authReducer
@@ -28,6 +29,8 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
 );
+
+setupInterceptors(store);
 
 sagaMiddleware.run(watchAuth);
 

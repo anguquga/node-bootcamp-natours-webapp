@@ -6,11 +6,13 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = (token, userId) => {
+export const authSuccess = (token, userData) => {
   return {
     type: actionTypes.AUTH_SUCCESS,
     token: token,
-    userId: userId
+    userName: userData.userName,
+    email: userData.email,
+    userImage: userData.userImage
   };
 };
 
@@ -33,27 +35,12 @@ export const logoutAction = () => {
   };
 };
 
-export const setTimer = (timer) => {
-  return {
-    type: actionTypes.AUTH_TIMER,
-    timer: timer
-  };
-};
-
-export const checkAuthTimeout = (expiresIn) => {
-  return {
-    type: actionTypes.AUTH_CHECK_TIMEOUT,
-    expiresIn: expiresIn
-  };
-};
-
-export const authenticate = (email, password, isSignUp) => {
+export const authenticate = (email, password) => {
   //Call Authenticate in Saga
   return {
     type: actionTypes.AUTH_INITIATE,
     email: email,
-    password: password,
-    isSignUp: isSignUp
+    password: password
   };
 };
 

@@ -2,8 +2,9 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   token: null,
-  userId: null,
-  userimage: null,
+  userName: null,
+  userImage: null,
+  email: null,
   error: null,
   loading: false,
   timer: null,
@@ -18,7 +19,9 @@ const reducer = (state = initialState, action) => {
         error: null,
         loading: true,
         token: null,
-        userId: null
+        userName: null,
+        userImage: null,
+        email: null
       };
     }
     case actionTypes.AUTH_SUCCESS: {
@@ -27,7 +30,9 @@ const reducer = (state = initialState, action) => {
         error: null,
         loading: false,
         token: action.token,
-        userId: action.userId
+        userName: action.userName,
+        email: action.email,
+        userImage: action.userImage
       };
     }
     case actionTypes.AUTH_FAIL: {
@@ -36,21 +41,19 @@ const reducer = (state = initialState, action) => {
         error: action.error,
         loading: false,
         token: null,
-        userId: null
+        userName: null,
+        userImage: null,
+        email: null
       };
     }
     case actionTypes.AUTH_LOGOUT: {
       return {
         ...state,
-        userId: null,
         token: null,
+        userName: null,
+        userImage: null,
+        email: null,
         timer: null
-      };
-    }
-    case actionTypes.AUTH_TIMER: {
-      return {
-        ...state,
-        timer: action.timer
       };
     }
     case actionTypes.SET_AUTH_REDIRECT: {

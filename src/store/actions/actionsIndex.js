@@ -6,6 +6,5 @@ export {
   logoutAction,
   authStart,
   authSuccess,
-  checkAuthTimeout,
   authFail
 } from './authActions';

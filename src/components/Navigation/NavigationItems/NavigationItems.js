@@ -10,22 +10,22 @@ const navigationItems = (props) => {
         <Aux>
           <Link
             to="/bookings"
-            class="nav__el"
+            className="nav__el"
             onClick={props.isMobile ? props.closeSideDrawer : null}
           >
             My Bookings
           </Link>
           <Link
             to="/user"
-            class="nav__el"
+            className="nav__el"
             onClick={props.isMobile ? props.closeSideDrawer : null}
           >
-            <img src="{props.userimage}" alt="User" class="nav__user-img" />
+            <img src="{props.userimage}" alt="User" className="nav__user-img" />
             <span>{props.username}</span>
           </Link>
           <Link
             to="/logout"
-            class="nav__el"
+            className="nav__el"
             onClick={props.isMobile ? props.closeSideDrawer : null}
           >
             Logout
@@ -35,7 +35,7 @@ const navigationItems = (props) => {
         <Aux>
           <Link
             to="/auth"
-            class="nav__el"
+            className="nav__el"
             onClick={props.isMobile ? props.closeSideDrawer : null}
           >
             Log In
@@ -44,7 +44,7 @@ const navigationItems = (props) => {
             to="/signup"
             onClick={props.isMobile ? props.closeSideDrawer : null}
           >
-            <button class="nav__el nav__el--cta">Sign up</button>
+            <button className="nav__el nav__el--cta">Sign up</button>
           </Link>
         </Aux>
       )}
